@@ -1,0 +1,14 @@
+<h2 [ngClass]="{'rouge': color === 'red', 'bleue': color === 'blue'}">Items List</h2>
+<!-- ajoute un propriete class=rouge si color=red -->
+<!-- <h2 class="rouge"></h2>
+<h2 class="bleue"></h2> -->
+<p [ngStyle]="{'color': color}">Lorem ipsum dolor sit.</p>
+
+<p *ngIf="isvisible">afficher</p>
+
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>
+
+<input #item type="text">
+<button (click)="addItem(item.value); item.value=''">add item</button>

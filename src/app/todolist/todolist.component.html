@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let todo of todos" [ngClass]="{'orange': todo.status == 'in-progress', 'vert': todo.status == 'completed'}">{{todo.name}}</li>
+</ul>
+
+<input #todo type="text">
+<button (click)="addTodo(todo.value); todo.value=''">add item</button>
