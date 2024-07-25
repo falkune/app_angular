@@ -2,19 +2,19 @@
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
         <!-- email -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <label for="exampleInputEmail1" class="form-label">Titre</label>
           <input type="text" class="form-control" formControlName="titre">
           <!-- on verifie si le champ titre a recu le focus au moins une fois et que l'utilisateur a taper ou pas quelque chose dedans pour pouvoir afficher l'erreur correspondante -->
           <div *ngIf="postForm.get('titre')?.invalid && postForm.get('titre')?.touched">
-            <p *ngIf="postForm.get('titre')?.errors?.['required']">l'Email est requis</p>
+            <p *ngIf="postForm.get('titre')?.errors?.['required']">titre requis</p>
           </div>
         </div>
         <!-- mot de passe -->
         <div class="mb-3">
-          <label class="form-label">Mot de passe</label>
-          <textarea formControlName="commentaire"></textarea>
+          <label class="form-label">Commentaire</label>
+          <textarea formControlName="commentaire" class="form-control" rows="3"></textarea>
           <div *ngIf="postForm.get('commentaire')?.invalid && postForm.get('commentaire')?.touched">
-            <p *ngIf="postForm.get('commentaire')?.errors?.['required']">Le mot de passe est requis</p>
+            <p *ngIf="postForm.get('commentaire')?.errors?.['required']">commentaire requis</p>
           </div>
         </div>
         
