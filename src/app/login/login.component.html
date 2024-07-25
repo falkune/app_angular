@@ -1,5 +1,5 @@
 <div class="w-25 mx-auto">
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
         <!-- email -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -13,7 +13,11 @@
         <!-- mot de passe -->
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-          <input type="password" class="form-control" >
+          <input type="password" class="form-control" formControlName="password">
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <p *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est requis</p>
+            <p *ngIf="loginForm.get('password')?.errors?.['minlength']">Le mot de passe est trop court</p>
+          </div>
         </div>
         
         <button type="submit" class="btn btn-primary">Login</button>
