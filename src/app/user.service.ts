@@ -25,10 +25,11 @@ export class UserService {
     let body = post;
     let token = localStorage.getItem('token');
     let headers = new HttpHeaders({
-      "Autorization": `bearer${token}`
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
     });
 
-    return this.http.post('http://localhost:3000/post/add', body, {headers});
+    return this.http.post('http://localhost:3000/post/add', body, {headers: headers});
   }
 
 }
