@@ -15,4 +15,10 @@ export class UserService {
     return this.http.post("http://localhost:3000/user/register", body);
   }
 
+  // methode login qui connecte un user sur le site
+  login(user:any): Observable<any>{
+    let body = user;
+    return this.http.post('http://localhost:3000/user/login', body);
+  }
+
 }
