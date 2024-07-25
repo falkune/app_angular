@@ -36,7 +36,6 @@ export class RegisterComponent {
           console.error('Login error', error.error);
         }
       })
-      // console.log(this.registerForm.value)
     }
 
   }
