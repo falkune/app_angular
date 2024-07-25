@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="w-25 mx-auto">
+    <form [formGroup]="loginForm">
+        <!-- email -->
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" >
+          <!-- on verifie si le champ email a recu le focus au moins une fois et que l'utilisateur a taper ou pas quelque chose dedans pour pouvoir afficher l'erreur correspondante -->
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <p *ngIf="loginForm.get('email')?.errors?.['required']">l'Email est requis</p>
+            <p *ngIf="loginForm.get('email')?.errors?.['email']">Format email invalide</p>
+          </div>
+        </div>
+        <!-- mot de passe -->
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" >
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
