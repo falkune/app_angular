@@ -1,4 +1,4 @@
-export interface TodModel {
+export interface TodoModel {
     id: number,
     name: string,
     status: string
