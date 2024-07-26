@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { PostModel } from './postModel';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,17 @@ export class UserService {
     return this.http.get('http://localhost:3000/post/getAll');
   }
 
+  // methode pour recuperer les infos d'un post
+  getPostById(id:number): Observable<any>{
+    return this.http.get(`http://localhost:3000/post/getpost/${id}`);
+  }
+
+  // methode pour supprimer un post
+  deletePost(id: number): Observable<any>{
+    return this.http.get(`http://localhost:3000/post/delete/${id}`);
+  }
+  // methode pour modifier un post
+  updatePost(data:PostModel){
+    return this.http.post(`http://localhost:3000/post/update/`, data);
+  }
 }

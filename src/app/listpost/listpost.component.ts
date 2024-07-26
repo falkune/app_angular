@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SinglepostComponent } from '../singlepost/singlepost.component';
 import { UserService } from '../user.service';
 import { CommonModule } from '@angular/common';
+import { PostModel } from '../postModel';
 
 @Component({
   selector: 'app-listpost',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ListpostComponent implements OnInit{
   // la propriete contenant la liste des posts
-  listpost!:object[];
+  listpost!:PostModel[];
   // constructeur
   constructor(private userService: UserService){}
 
@@ -21,7 +22,7 @@ export class ListpostComponent implements OnInit{
     this.userService.getAllPost().subscribe({
       next: (response) => {
         this.listpost = response.list;
-        console.log(this.listpost);
+        // console.log(this.listpost);
       },
       error: (error) => {
         console.log(error);

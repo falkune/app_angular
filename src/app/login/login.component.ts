@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userSevice: UserService){
+  constructor(private formBuilder: FormBuilder, private userSevice: UserService, private router: Router){
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: [ '', [Validators.required, Validators.minLength(6)]]
@@ -31,6 +32,7 @@ export class LoginComponent {
           // enregistrer le token dan le localStorage
           localStorage.setItem('token', response.data);
           // console.log(localStorage.getItem('token'));
+          this.router.navigateByUrl('/')
         },
         error: (error) => {
           console.log(error);
