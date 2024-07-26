@@ -39,7 +39,7 @@ export class UpdateComponent implements OnInit {
     if(this.postForm.valid){
       // appel de la methode pour sauvegarder les modification
       this.data.titre = this.postForm.value.titre;
-      this.data.description = this.postForm.value.commentaire;
+      this.data.commentaire = this.postForm.value.commentaire;
 
       this.userService.updatePost(this.data).subscribe({
         next: (response) => {
