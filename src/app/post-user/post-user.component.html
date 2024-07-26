@@ -1,0 +1,8 @@
+<h1>Voici vos posts</h1>
+
+<div *ngIf="!postEmpty" class="d-flex w-75 mx-auto flex-column gap-5">
+    <app-singlepost *ngFor="let onepost of userPost" [post]="onepost"></app-singlepost>
+</div>
+
+<p *ngIf="postEmpty">vous n'avez aucun post</p>
+

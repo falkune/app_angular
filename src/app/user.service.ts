@@ -55,4 +55,14 @@ export class UserService {
     });
     return this.http.post(`http://localhost:3000/post/update`, data, { headers: headers });
   }
+
+  // methode pour recuperer la liste des poste d'un user
+  getUserPosts(): Observable<any>{
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+    });
+    return this.http.get(`http://localhost:3000/post/postUser/`, {headers: headers});
+  }
 }
