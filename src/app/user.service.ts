@@ -47,7 +47,12 @@ export class UserService {
     return this.http.get(`http://localhost:3000/post/delete/${id}`);
   }
   // methode pour modifier un post
-  updatePost(data:PostModel){
-    return this.http.post(`http://localhost:3000/post/update/`, data);
+  updatePost(data:PostModel):Observable<any>{
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+    });
+    return this.http.post(`http://localhost:3000/post/update`, data, { headers: headers });
   }
 }

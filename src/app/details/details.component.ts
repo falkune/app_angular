@@ -47,6 +47,6 @@ export class DetailsComponent implements OnInit{
 
   // methode pour modifier un post
   updatePost(){
-
+    this.route.navigateByUrl(`update/${this.postInfos.id}`);
   }
 }
