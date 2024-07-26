@@ -20,7 +20,7 @@ export class UserService {
     let body = user;
     return this.http.post('http://localhost:3000/user/login', body);
   }
-
+  // methode pour ajouter un post
   savePost(post: any): Observable<any> {
     let body = post;
     let token = localStorage.getItem('token');
@@ -30,6 +30,10 @@ export class UserService {
     });
 
     return this.http.post('http://localhost:3000/post/add', body, {headers: headers});
+  }
+  // methode pour recuperer la liste des posts
+  getAllPost(): Observable<any>{
+    return this.http.get('http://localhost:3000/post/getAll');
   }
 
 }
