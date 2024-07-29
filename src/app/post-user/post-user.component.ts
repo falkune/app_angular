@@ -17,16 +17,16 @@ export class PostUserComponent implements OnInit{
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
-      this.userService.getUserPosts().subscribe({
-        next: (response) => {
-          this.userPost = response;
-          if(response.length != 0){
-            this.postEmpty = false;
-          }
-        }, 
-        error: (error) => {
-          console.log(error);
+    this.userService.getUserPosts().subscribe({
+      next: (response) => {
+        this.userPost = response;
+        if(response.length != 0){
+          this.postEmpty = false;
         }
-      })
+      }, 
+      error: (error) => {
+        console.log(error);
+      }
+    })
   }
 }

@@ -1,5 +1,9 @@
 <h1>La liste des post est la</h1>
 
 <div class="d-flex w-75 mx-auto flex-column gap-5">
+    <!-- Directive *ngFor pour iterer sur chaque element de la liste 'listpost' -->
+    <!-- 'onepost' est une variable locale representant l'element courant dans l'iteration -->
     <app-singlepost *ngFor="let onepost of listpost" [post]="onepost"></app-singlepost>
+    <!-- Le composant app-singlepost est utilise pour afficher chaque post individuel -->
+    <!-- La propriete 'post' est liee a chaque element 'onepost' de la liste 'listpost' -->
 </div>

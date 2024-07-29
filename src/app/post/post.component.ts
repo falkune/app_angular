@@ -16,7 +16,9 @@ export class PostComponent {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService){
     this.postForm = this.formBuilder.group({
+      // Champ titre avec un validateur requis
       titre: ['', Validators.required],
+      // Champ commentaire avec un validateur requis
       commentaire: ['', Validators.required]
     })
   }
@@ -36,5 +38,4 @@ export class PostComponent {
       })
     }
   }
-
 }
